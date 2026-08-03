@@ -4,7 +4,7 @@
   var mobileNav = document.getElementById("mobileNav");
   var year = document.getElementById("year");
   var form = document.getElementById("contactForm");
-  var statusEl = document.getElementById("formStatus");
+  var formAlert = document.getElementById("formAlert");
   var submitBtn = document.getElementById("submitBtn");
 
   if (year) {
@@ -90,13 +90,31 @@
 
   function clearFieldErrors() {
     if (!form) return;
+    form.querySelectorAll(".field").forEach(function (field) {
+      field.classList.remove("is-invalid");
+    });
     form.querySelectorAll(".field-error").forEach(function (el) {
-      el.hidden = true;
       el.textContent = "";
+      el.classList.remove("is-visible");
     });
     form.querySelectorAll(".has-error").forEach(function (el) {
       el.classList.remove("has-error");
     });
+  }
+
+  function hideAlert() {
+    if (!formAlert) return;
+    formAlert.hidden = true;
+    formAlert.className = "form-alert";
+    formAlert.textContent = "";
+  }
+
+  function showAlert(type, message) {
+    if (!formAlert) return;
+    formAlert.hidden = false;
+    formAlert.className = "form-alert is-" + type + " is-visible";
+    formAlert.textContent = message;
+    formAlert.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   function showFieldErrors(errors) {
@@ -104,23 +122,16 @@
     Object.keys(errors).forEach(function (field) {
       if (field === "form") return;
       var message = errors[field];
+      var wrap = form.querySelector('.field[data-field="' + field + '"]');
       var input = form.querySelector('[name="' + field + '"]');
       var errorEl = form.querySelector('[data-error-for="' + field + '"]');
-      if (input) {
-        input.classList.add("has-error");
-      }
+      if (wrap) wrap.classList.add("is-invalid");
+      if (input) input.classList.add("has-error");
       if (errorEl) {
-        errorEl.hidden = false;
         errorEl.textContent = message;
+        errorEl.classList.add("is-visible");
       }
     });
-  }
-
-  function showStatus(type, message) {
-    statusEl.hidden = false;
-    statusEl.removeAttribute("hidden");
-    statusEl.className = "form-status " + type;
-    statusEl.textContent = message;
   }
 
   function validateClient() {
@@ -155,12 +166,13 @@
     form.querySelectorAll("input, textarea, select").forEach(function (field) {
       field.addEventListener("input", function () {
         field.classList.remove("has-error");
-        var errorEl = form.querySelector(
-          '[data-error-for="' + field.getAttribute("name") + '"]'
-        );
+        var name = field.getAttribute("name");
+        var wrap = form.querySelector('.field[data-field="' + name + '"]');
+        var errorEl = form.querySelector('[data-error-for="' + name + '"]');
+        if (wrap) wrap.classList.remove("is-invalid");
         if (errorEl) {
-          errorEl.hidden = true;
           errorEl.textContent = "";
+          errorEl.classList.remove("is-visible");
         }
       });
     });
@@ -168,14 +180,12 @@
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       clearFieldErrors();
-      statusEl.hidden = true;
-      statusEl.className = "form-status";
-      statusEl.textContent = "";
+      hideAlert();
 
       var clientErrors = validateClient();
       if (Object.keys(clientErrors).length) {
         showFieldErrors(clientErrors);
-        showStatus("error", "Please fix the highlighted fields and try again.");
+        showAlert("error", "Please fix the highlighted fields and try again.");
         var firstInvalid = form.querySelector(".has-error");
         if (firstInvalid) firstInvalid.focus();
         return;
@@ -226,12 +236,9 @@
 
         form.reset();
         clearFieldErrors();
-        showStatus(
-          "ok",
-          "Thanks — your message is saved. We'll get back soon."
-        );
+        showAlert("ok", "Thanks — your message is saved. We'll get back soon.");
       } catch (err) {
-        showStatus(
+        showAlert(
           "error",
           err && err.message
             ? err.message
