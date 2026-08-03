@@ -1,0 +1,17 @@
+# dependencies / build
+/node_modules/
+/.next/
+/out/
+/build/
+
+# OS / editor
+.DS_Store
+*.log
+
+# secrets & lead data
+/includes/config.local.php
+/data/leads.json
+/data/*.bak
+.env
+.env.*
+!.env.example
