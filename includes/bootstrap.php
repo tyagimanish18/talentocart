@@ -69,6 +69,80 @@ function tc_add_lead(array $lead): bool
     return tc_save_leads($leads);
 }
 
+function tc_normalize_lead(array $lead): array
+{
+    $allowedStatuses = ['new', 'contacted', 'closed'];
+    $status = strtolower((string) ($lead['status'] ?? 'new'));
+    if (!in_array($status, $allowedStatuses, true)) {
+        $status = 'new';
+    }
+
+    $lead['status'] = $status;
+    $lead['notes'] = isset($lead['notes']) ? (string) $lead['notes'] : '';
+    return $lead;
+}
+
+function tc_get_lead(string $id): ?array
+{
+    foreach (tc_read_leads() as $lead) {
+        if ((string) ($lead['id'] ?? '') === $id) {
+            return tc_normalize_lead($lead);
+        }
+    }
+    return null;
+}
+
+function tc_update_lead(string $id, array $changes): bool
+{
+    $leads = tc_read_leads();
+    $found = false;
+
+    foreach ($leads as $index => $lead) {
+        if ((string) ($lead['id'] ?? '') !== $id) {
+            continue;
+        }
+
+        $updated = array_merge($lead, $changes);
+        $updated['id'] = $id;
+        $leads[$index] = tc_normalize_lead($updated);
+        $found = true;
+        break;
+    }
+
+    return $found ? tc_save_leads($leads) : false;
+}
+
+function tc_delete_lead(string $id): bool
+{
+    $leads = tc_read_leads();
+    $filtered = array_values(array_filter(
+        $leads,
+        static fn(array $lead): bool => (string) ($lead['id'] ?? '') !== $id
+    ));
+
+    if (count($filtered) === count($leads)) {
+        return false;
+    }
+
+    return tc_save_leads($filtered);
+}
+
+function tc_csrf_token(): string
+{
+    tc_start_session();
+    if (empty($_SESSION['tc_csrf'])) {
+        $_SESSION['tc_csrf'] = bin2hex(random_bytes(24));
+    }
+    return (string) $_SESSION['tc_csrf'];
+}
+
+function tc_verify_csrf(?string $token): bool
+{
+    tc_start_session();
+    $expected = (string) ($_SESSION['tc_csrf'] ?? '');
+    return $expected !== '' && is_string($token) && hash_equals($expected, $token);
+}
+
 function tc_start_session(): void
 {
     if (session_status() !== PHP_SESSION_ACTIVE) {

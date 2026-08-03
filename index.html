@@ -209,23 +209,27 @@
           </dl>
         </div>
 
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" novalidate>
           <div class="form-grid">
             <label>
               <span>Name *</span>
-              <input name="name" required minlength="2" placeholder="Your name" />
+              <input name="name" required minlength="2" maxlength="120" placeholder="Your name" autocomplete="name" />
+              <small class="field-error" data-error-for="name" hidden></small>
             </label>
             <label>
               <span>Email *</span>
-              <input type="email" name="email" required placeholder="you@company.com" />
+              <input type="email" name="email" required maxlength="200" placeholder="you@company.com" autocomplete="email" />
+              <small class="field-error" data-error-for="email" hidden></small>
             </label>
             <label>
               <span>Phone</span>
-              <input name="phone" placeholder="+91 ..." />
+              <input name="phone" maxlength="40" placeholder="+91 ..." autocomplete="tel" />
+              <small class="field-error" data-error-for="phone" hidden></small>
             </label>
             <label>
               <span>Company</span>
-              <input name="company" placeholder="Company name" />
+              <input name="company" maxlength="160" placeholder="Company name" autocomplete="organization" />
+              <small class="field-error" data-error-for="company" hidden></small>
             </label>
             <label class="full">
               <span>Service interest</span>
@@ -237,14 +241,16 @@
                 <option>India payroll</option>
                 <option>Other</option>
               </select>
+              <small class="field-error" data-error-for="service" hidden></small>
             </label>
             <label class="full">
               <span>Message *</span>
-              <textarea name="message" required minlength="10" rows="5" placeholder="Roles, stacks, timeline, or payroll needs..."></textarea>
+              <textarea name="message" required minlength="10" maxlength="2000" rows="5" placeholder="Roles, stacks, timeline, or payroll needs..."></textarea>
+              <small class="field-error" data-error-for="message" hidden></small>
             </label>
           </div>
           <button class="btn-solid" type="submit" id="submitBtn">Send message</button>
-          <p class="form-status" id="formStatus" hidden></p>
+          <p class="form-status" id="formStatus" role="alert" hidden></p>
         </form>
       </div>
     </section>

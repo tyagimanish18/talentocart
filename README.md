@@ -6,7 +6,7 @@ Marketing website for Talentocart with a PHP contact form and admin leads dashbo
 
 - Creative tech landing page (`index.html`)
 - Contact form posts to `contact.php` and saves leads in `data/leads.json`
-- Admin login at `/admin/` to view all leads
+- Admin login at `/admin/` to **manage** leads (status, notes, delete)
 
 ## MilesWeb deploy
 
