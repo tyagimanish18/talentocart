@@ -13,20 +13,24 @@ $total = count($leads);
   <title>Leads dashboard | Talentocart</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <main class="dashboard">
     <div class="dashboard-header">
       <div>
-        <p class="brand">talento<span>cart</span></p>
+        <p class="logo">
+          <span class="logo-mark" aria-hidden="true"></span>
+          Talentocart
+        </p>
         <h1>Leads dashboard</h1>
         <p class="muted mono"><?= (int) $total ?> lead<?= $total === 1 ? '' : 's' ?> captured from the contact form</p>
       </div>
       <div class="dashboard-actions">
-        <a class="btn-ghost" href="../index.html">View site</a>
-        <a class="btn-primary" href="logout.php">Sign out</a>
+        <a class="btn-line" href="../index.html">View site</a>
+        <a class="btn-solid" href="logout.php">Sign out</a>
       </div>
     </div>
 

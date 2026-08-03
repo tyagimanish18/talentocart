@@ -7,212 +7,229 @@
   <meta name="description" content="Talentocart helps companies hire software engineers across every tech stack, provide on-demand developers, deliver software services, and run India payroll without the overhead." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
+
   <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-mark">T</span>
-        talento<span>cart</span>
+    <div class="shell header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark" aria-hidden="true"></span>
+        Talentocart
       </a>
 
       <nav class="nav-desktop" aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#stacks">Tech Stacks</a>
-        <a href="#how">How it works</a>
-        <a href="#contact">Contact</a>
-        <a class="btn-primary btn-sm" href="#contact">Hire talent</a>
+        <a href="#stacks">Stacks</a>
+        <a href="#how">Process</a>
+        <a href="#contact" class="nav-cta">Start hiring</a>
       </nav>
 
-      <button class="menu-toggle" type="button" id="menuToggle" aria-label="Toggle menu">MENU</button>
+      <button class="menu-toggle" type="button" id="menuToggle" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
     </div>
-    <div class="container nav-mobile" id="mobileNav">
+    <div class="nav-mobile" id="mobileNav" hidden>
       <a href="#services">Services</a>
-      <a href="#stacks">Tech Stacks</a>
-      <a href="#how">How it works</a>
-      <a href="#contact">Contact</a>
-      <a class="btn-primary" href="#contact">Hire talent</a>
+      <a href="#stacks">Stacks</a>
+      <a href="#how">Process</a>
+      <a href="#contact">Start hiring</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="top">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="site-grid" aria-hidden="true"></div>
-
-      <div class="hero-panel" aria-hidden="true">
-        <div class="scan-beam"></div>
-        <div class="hero-code">
-          <div class="pulse">// talent pipeline online</div>
-          <div>stack.match = true</div>
-          <div>latency.hire = "on-demand"</div>
-          <div class="lime">status: recruiting_ready</div>
+      <div class="hero-stage">
+        <div class="hero-atmosphere" aria-hidden="true">
+          <div class="blob blob-a"></div>
+          <div class="blob blob-b"></div>
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <svg class="orbit-map" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+            <circle cx="400" cy="400" r="220" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+            <circle cx="400" cy="400" r="310" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+            <path d="M400 90 L470 250 L640 250 L510 360 L560 530 L400 430 L240 530 L290 360 L160 250 L330 250 Z" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+            <circle class="node n1" cx="400" cy="90" r="8" fill="currentColor"/>
+            <circle class="node n2" cx="640" cy="250" r="6" fill="currentColor"/>
+            <circle class="node n3" cx="560" cy="530" r="7" fill="currentColor"/>
+            <circle class="node n4" cx="240" cy="530" r="6" fill="currentColor"/>
+            <circle class="node n5" cx="160" cy="250" r="7" fill="currentColor"/>
+          </svg>
         </div>
-        <div class="hero-stacks">
-          <span>React</span>
-          <span>Node</span>
-          <span>Java</span>
-          <span>Python</span>
-          <span>DevOps</span>
-          <span>AI/ML</span>
-        </div>
-      </div>
 
-      <div class="container hero-content">
-        <div>
-          <p class="eyebrow animate-rise">Talentocart</p>
-          <h1 class="animate-rise-delay-1">
-            Engineers,<br />
-            <span class="lime">on demand.</span>
+        <div class="shell hero-copy">
+          <p class="brand-lockup reveal">Talentocart</p>
+          <h1 class="reveal delay-1">
+            Build teams<br />
+            at startup<br />
+            <em>speed.</em>
           </h1>
-          <p class="hero-copy animate-rise-delay-2">
-            Hire software engineers across every stack, scale with on-demand
-            developers, ship product with our engineering teams — or run India
-            payroll without the overhead.
+          <p class="lede reveal delay-2">
+            On-demand engineers, full-stack hiring, software delivery, and India payroll — without the operational drag.
           </p>
-          <div class="hero-cta animate-rise-delay-3">
-            <a class="btn-primary" href="#contact">Request talent</a>
-            <a class="btn-ghost" href="#services">Explore services</a>
+          <div class="hero-actions reveal delay-3">
+            <a class="btn-solid" href="#contact">Request talent</a>
+            <a class="btn-line" href="#services">See what we run</a>
           </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>React</span><span>Node</span><span>Java</span><span>Python</span><span>Go</span><span>.NET</span><span>Flutter</span><span>AWS</span><span>Kubernetes</span><span>AI/ML</span>
+          <span>React</span><span>Node</span><span>Java</span><span>Python</span><span>Go</span><span>.NET</span><span>Flutter</span><span>AWS</span><span>Kubernetes</span><span>AI/ML</span>
         </div>
       </div>
     </section>
 
-    <section class="section section-border" id="services">
-      <div class="container">
-        <p class="section-label">What we do</p>
-        <h2>Built for companies that ship software.</h2>
-        <p class="section-intro">
-          One partner for hiring, flexible engineering capacity, delivery, and
-          India payroll.
-        </p>
-
-        <div class="services-grid">
-          <article class="service-card">
-            <p class="code">01</p>
-            <h3>Tech hiring</h3>
-            <p>We source and place software engineers across every major stack — from product squads to specialized roles.</p>
-          </article>
-          <article class="service-card">
-            <p class="code">02</p>
-            <h3>On-demand developers</h3>
-            <p>Spin up vetted engineers quickly when you need bandwidth, without long hiring cycles or permanent headcount.</p>
-          </article>
-          <article class="service-card">
-            <p class="code">03</p>
-            <h3>Software services</h3>
-            <p>From architecture to delivery, our teams build, modernize, and maintain products with production-grade engineering.</p>
-          </article>
-          <article class="service-card">
-            <p class="code">04</p>
-            <h3>India payroll partner</h3>
-            <p>Hire talent in India without running local payroll ops — we handle employer-of-record and compliance overhead.</p>
-          </article>
+    <section class="section services" id="services">
+      <div class="shell">
+        <div class="section-head">
+          <p class="kicker">What we run</p>
+          <h2>Four ways we plug into your company.</h2>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-tight" id="stacks">
-      <div class="container">
-        <div class="stacks-head">
-          <div>
-            <p class="section-label lime">Tech stacks</p>
-            <h2>Every stack. One talent network.</h2>
-          </div>
-          <p class="section-intro">
-            Frontend, backend, mobile, cloud, data, and AI — matched to how your
-            product actually ships.
-          </p>
-        </div>
-        <div class="stack-list">
-          <span>React / Next.js</span>
-          <span>Node.js</span>
-          <span>Python / Django</span>
-          <span>Java / Spring</span>
-          <span>Go</span>
-          <span>.NET</span>
-          <span>Flutter</span>
-          <span>React Native</span>
-          <span>AWS / GCP / Azure</span>
-          <span>Kubernetes</span>
-          <span>Data Engineering</span>
-          <span>AI / ML</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-band" id="how">
-      <div class="container">
-        <p class="section-label">How it works</p>
-        <h2>From brief to bench in a few sharp steps.</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">01</div>
-            <h3>Tell us the brief</h3>
-            <p>Share the role, stack, timeline, or payroll need. We shape a clear hiring or delivery plan.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <h3>We match &amp; assemble</h3>
-            <p>Get vetted engineers, on-demand capacity, or a delivery squad aligned to your stack and pace.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <h3>Start shipping</h3>
-            <p>Plug talent into your workflow — or let us run India employment while you stay focused on product.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <p class="section-label lime">Contact</p>
-          <h2>Tell us what you need to build.</h2>
-          <p class="section-intro">
-            Share your hiring, delivery, or payroll brief. We respond with a
-            clear next step.
-          </p>
-          <div class="contact-meta">
+        <div class="service-rail">
+          <article class="service-band band-hire">
+            <span class="idx">01</span>
             <div>
-              <p class="label">Email</p>
-              <a href="mailto:info@talentocart.com">info@talentocart.com</a>
+              <h3>Tech hiring</h3>
+              <p>Source and place engineers across every major stack — product squads, specialists, and leadership roles.</p>
+            </div>
+            <span class="band-tag">Recruit</span>
+          </article>
+          <article class="service-band band-demand">
+            <span class="idx">02</span>
+            <div>
+              <h3>On-demand developers</h3>
+              <p>Spin up vetted capacity when roadmaps spike, without permanent headcount or slow hiring cycles.</p>
+            </div>
+            <span class="band-tag">Flex</span>
+          </article>
+          <article class="service-band band-build">
+            <span class="idx">03</span>
+            <div>
+              <h3>Software services</h3>
+              <p>Architecture to ship — build, modernize, and maintain products with production-grade engineering.</p>
+            </div>
+            <span class="band-tag">Deliver</span>
+          </article>
+          <article class="service-band band-pay">
+            <span class="idx">04</span>
+            <div>
+              <h3>India payroll partner</h3>
+              <p>Hire in India without local payroll overhead — we carry employer-of-record and compliance ops.</p>
+            </div>
+            <span class="band-tag">Payroll</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stacks" id="stacks">
+      <div class="shell stacks-layout">
+        <div class="stacks-copy">
+          <p class="kicker">Tech stacks</p>
+          <h2>Any stack.<br />One talent network.</h2>
+          <p class="section-text">
+            Frontend, backend, mobile, cloud, data, and AI — matched to how your product actually ships.
+          </p>
+        </div>
+        <ul class="stack-mosaic">
+          <li class="tall">React / Next.js</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li class="wide">Java / Spring</li>
+          <li>Go</li>
+          <li>.NET</li>
+          <li class="wide">Flutter &amp; React Native</li>
+          <li>AWS / GCP / Azure</li>
+          <li class="tall">Kubernetes</li>
+          <li>Data Eng</li>
+          <li class="accent">AI / ML</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section process" id="how">
+      <div class="shell">
+        <p class="kicker">Process</p>
+        <h2>Brief in. Bench live.</h2>
+
+        <ol class="process-list">
+          <li>
+            <span class="step-no">01</span>
+            <div>
+              <h3>Tell us the brief</h3>
+              <p>Role, stack, timeline, or payroll need — we turn it into a clear hiring or delivery plan.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-no">02</span>
+            <div>
+              <h3>We match &amp; assemble</h3>
+              <p>Vetted engineers, on-demand capacity, or a delivery squad aligned to your pace.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-no">03</span>
+            <div>
+              <h3>Start shipping</h3>
+              <p>Plug talent into your workflow — or let us run India employment while you stay on product.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="shell contact-layout">
+        <div class="contact-intro">
+          <p class="kicker">Contact</p>
+          <h2>What do you need to build next?</h2>
+          <p class="section-text">
+            Share the hiring, delivery, or payroll brief. We’ll reply with a clear next step.
+          </p>
+
+          <dl class="contact-facts">
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:info@talentocart.com">info@talentocart.com</a></dd>
             </div>
             <div>
-              <p class="label">Mobile</p>
-              <a href="tel:+919927082079">+91 99270 82079</a>
+              <dt>Mobile</dt>
+              <dd><a href="tel:+919927082079">+91 99270 82079</a></dd>
             </div>
             <div>
-              <p class="label">Address</p>
-              <div>Noida · Ghaziabad, India</div>
+              <dt>Studios</dt>
+              <dd>Noida · Ghaziabad</dd>
             </div>
-          </div>
+          </dl>
         </div>
 
         <form class="contact-form" id="contactForm">
           <div class="form-grid">
             <label>
               <span>Name *</span>
-              <input class="input-field" name="name" required minlength="2" placeholder="Your name" />
+              <input name="name" required minlength="2" placeholder="Your name" />
             </label>
             <label>
               <span>Email *</span>
-              <input class="input-field" type="email" name="email" required placeholder="you@company.com" />
+              <input type="email" name="email" required placeholder="you@company.com" />
             </label>
             <label>
               <span>Phone</span>
-              <input class="input-field" name="phone" placeholder="+91 ..." />
+              <input name="phone" placeholder="+91 ..." />
             </label>
             <label>
               <span>Company</span>
-              <input class="input-field" name="company" placeholder="Company name" />
+              <input name="company" placeholder="Company name" />
             </label>
             <label class="full">
               <span>Service interest</span>
-              <select class="input-field" name="service">
+              <select name="service">
                 <option value="">Select a service</option>
                 <option>Tech hiring</option>
                 <option>On-demand developers</option>
@@ -223,12 +240,10 @@
             </label>
             <label class="full">
               <span>Message *</span>
-              <textarea class="input-field" name="message" required minlength="10" placeholder="Roles, stacks, timeline, or payroll needs..."></textarea>
+              <textarea name="message" required minlength="10" rows="5" placeholder="Roles, stacks, timeline, or payroll needs..."></textarea>
             </label>
           </div>
-          <button class="btn-primary" type="submit" id="submitBtn" style="width:100%;margin-top:1.5rem">
-            Send message
-          </button>
+          <button class="btn-solid" type="submit" id="submitBtn">Send message</button>
           <p class="form-status" id="formStatus" hidden></p>
         </form>
       </div>
@@ -236,20 +251,18 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-row">
-        <div>
-          <p class="brand">talento<span>cart</span></p>
-          <p class="muted" style="margin:0.35rem 0 0;font-size:0.9rem">
-            Hiring · On-demand engineers · Software services · India payroll
-          </p>
-        </div>
-        <div class="footer-links">
-          <a href="mailto:info@talentocart.com">info@talentocart.com</a>
-          <a href="tel:+919927082079">+91 99270 82079</a>
-          <a href="admin/">Admin</a>
-        </div>
+    <div class="shell footer-grid">
+      <div>
+        <p class="logo">Talentocart</p>
+        <p class="footer-note">Hiring · On-demand engineers · Software services · India payroll</p>
       </div>
+      <div class="footer-links">
+        <a href="mailto:info@talentocart.com">info@talentocart.com</a>
+        <a href="tel:+919927082079">+91 99270 82079</a>
+        <a href="admin/">Admin</a>
+      </div>
+    </div>
+    <div class="shell">
       <p class="footer-copy">© <span id="year"></span> Talentocart · Noida · Ghaziabad</p>
     </div>
   </footer>
