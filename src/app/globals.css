@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #061018;
+  --ink-2: #0c1c2a;
+  --ink-3: #132636;
+  --ice: #e8f0f5;
+  --muted: #8fa3b3;
+  --lime: #b8f000;
+  --lime-dim: #8fbc00;
+  --cyan: #2ee6d6;
+  --line: rgba(184, 240, 0, 0.16);
+  --glass: rgba(12, 28, 42, 0.72);
+  --danger: #ff6b6b;
+  --ok: #3dff9a;
+  --background: var(--ink);
+  --foreground: var(--ice);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ice: var(--ice);
+  --color-muted: var(--muted);
+  --color-lime: var(--lime);
+  --color-lime-dim: var(--lime-dim);
+  --color-cyan: var(--cyan);
+  --color-line: var(--line);
+  --color-glass: var(--glass);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+  --font-display: var(--font-syne);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-jetbrains);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--ice);
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--lime) 55%, transparent);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-syne), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains), monospace;
+}
+
+.site-grid {
+  background-image:
+    linear-gradient(rgba(184, 240, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 240, 0, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black 20%, transparent 75%);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(ellipse 50% 40% at 70% 20%, rgba(46, 230, 214, 0.18), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 20% 30%, rgba(184, 240, 0, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(12, 28, 42, 0.9), transparent 70%);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(220%);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.animate-rise-delay-3 {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+.animate-pulse-line {
+  animation: pulse-line 3.2s ease-in-out infinite;
+}
+
+.scan-beam {
+  animation: scan 4.5s linear infinite;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid rgba(232, 240, 245, 0.12);
+  background: rgba(6, 16, 24, 0.55);
+  color: var(--ice);
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: color-mix(in oklab, var(--lime) 70%, white);
+  box-shadow: 0 0 0 3px rgba(184, 240, 0, 0.12);
+}
+
+.input-field::placeholder {
+  color: color-mix(in oklab, var(--muted) 80%, transparent);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.95rem 1.4rem;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #cfff33;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(184, 240, 0, 0.22);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(232, 240, 245, 0.22);
+  color: var(--ice);
+  font-weight: 600;
+  padding: 0.95rem 1.4rem;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--lime);
+  background: rgba(184, 240, 0, 0.06);
+  transform: translateY(-2px);
+}
