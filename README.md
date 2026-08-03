@@ -1,44 +1,45 @@
-# Talentocart
+# Talentocart (static + PHP)
 
-Creative tech website for **Talentocart** — hire software engineers across stacks, on-demand developers, software services, and India payroll partnership.
+Marketing website for Talentocart with a PHP contact form and admin leads dashboard. Built for shared hosting like **MilesWeb** (HTML/CSS/JS + PHP).
 
-## Features
+## What you get
 
-- Marketing site with services, tech stacks, and contact form
-- Contact submissions saved to a local SQLite database
-- Admin login at `/admin` to view all leads at `/admin/dashboard`
+- Creative tech landing page (`index.html`)
+- Contact form posts to `contact.php` and saves leads in `data/leads.json`
+- Admin login at `/admin/` to view all leads
 
-## Quick start
+## MilesWeb deploy
+
+1. In cPanel File Manager, open `public_html`
+2. Upload these folders/files:
+   - `index.html`
+   - `contact.php`
+   - `assets/`
+   - `admin/`
+   - `includes/`
+   - `data/`
+3. Copy `includes/config.example.php` → `includes/config.local.php`
+4. Edit `includes/config.local.php` and set a strong `admin_password`
+5. Make sure `data/` is writable by PHP (usually `755` or `775`)
+6. Visit your domain, then open `/admin/` to log in
+
+### Admin login (default before you change it)
+
+- Email: `info@talentocart.com`
+- Password: `Talentocart@2026`
+
+Change the password immediately after upload.
+
+## Local PHP test (optional)
 
 ```bash
-npm install
-cp .env.example .env.local
-npm run dev
+php -S localhost:8080
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## Admin access
-
-Configure credentials in `.env.local`:
-
-```env
-ADMIN_EMAIL=info@talentocart.com
-ADMIN_PASSWORD=your-strong-password
-AUTH_SECRET=long-random-secret
-```
-
-Then visit `/admin` and sign in.
+Then open http://localhost:8080
 
 ## Contact details
 
 - Email: info@talentocart.com
 - Mobile: +91 99270 82079
 - Address: Noida · Ghaziabad
-
-## Scripts
-
-- `npm run dev` — development server
-- `npm run build` — production build
-- `npm start` — run production server
-- `npm run lint` — lint
